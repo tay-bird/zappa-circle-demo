@@ -1,0 +1,10 @@
+version: 2.1
+
+jobs:
+  build:
+    docker:
+      - image: circleci/python:2.7.15
+    steps:
+      - checkout
+      - run: pipenv install
+      - run: zappa status
