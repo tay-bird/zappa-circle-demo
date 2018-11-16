@@ -7,4 +7,4 @@ jobs:
     steps:
       - checkout
       - run: pipenv install
-      - run: zappa status
+      - run: pipenv run zappa status
