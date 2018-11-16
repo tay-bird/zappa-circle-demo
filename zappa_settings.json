@@ -1,0 +1,15 @@
+{
+    "staging": {
+        "app_function": "app.app",
+        "project_name": "zappa-circle",
+        "runtime": "python2.7",
+        "s3_bucket": "circle-zappa-viv818wqx"
+    },
+    "local": {
+        "extends": "staging",
+        "profile_name": "dev" 
+    },
+    "live": {
+        "extends": "staging"
+    }
+}
