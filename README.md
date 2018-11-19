@@ -65,7 +65,12 @@ The execute role must include lambda.amazonaws.com, apigateway.amazonaws.com, an
                 "lambda:ListEventSourceMappings",
                 "cloudwatch:DescribeAlarms",
                 "events:RemovePermission",
-                "lambda:DeleteEventSourceMapping"
+                "lambda:DeleteEventSourceMapping",
+                "cloudformation:CreateUploadBucket",
+                "cloudformation:EstimateTemplateCost",
+                "cloudformation:DescribeAccountLimits",
+                "cloudformation:GetTemplateSummary",
+                "cloudformation:ValidateTemplate"
             ],
             "Resource": "*"
         },
@@ -109,6 +114,42 @@ The execute role must include lambda.amazonaws.com, apigateway.amazonaws.com, an
             ],
             "Resource": [
                 "arn:aws:iam::*:role/zappa-execute-role"
+            ]
+        },
+        {
+            "Sid": "VisualEditor6",
+            "Effect": "Allow",
+            "Action": [
+                "cloudformation:DeleteStackInstances",
+                "cloudformation:CancelUpdateStack",
+                "cloudformation:UpdateStackInstances",
+                "cloudformation:UpdateTerminationProtection",
+                "cloudformation:DescribeStackResource",
+                "cloudformation:UpdateStackSet",
+                "cloudformation:CreateChangeSet",
+                "cloudformation:CreateStackInstances",
+                "cloudformation:DeleteChangeSet",
+                "cloudformation:ContinueUpdateRollback",
+                "cloudformation:DescribeStackEvents",
+                "cloudformation:DescribeStackSetOperation",
+                "cloudformation:UpdateStack",
+                "cloudformation:StopStackSetOperation",
+                "cloudformation:DescribeChangeSet",
+                "cloudformation:CreateStackSet",
+                "cloudformation:ExecuteChangeSet",
+                "cloudformation:DescribeStackInstance",
+                "cloudformation:DescribeStackResources",
+                "cloudformation:SignalResource",
+                "cloudformation:DeleteStackSet",
+                "cloudformation:DescribeStacks",
+                "cloudformation:GetStackPolicy",
+                "cloudformation:DescribeStackSet",
+                "cloudformation:CreateStack",
+                "cloudformation:GetTemplate",
+                "cloudformation:DeleteStack"
+            ],
+            "Resource": [
+                "arn:aws:cloudformation:*:*:stack/zappa-*/*"
             ]
         }
     ]
