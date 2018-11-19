@@ -7,11 +7,12 @@ jobs:
     steps:
       - checkout
       - run: pipenv install
-      - run: |
-        STATUS=$(pipenv run zappa status staging -j 2>&1)
-        if   [[ $(echo $STATUS | jq .);
-        then pipenv run zappa update staging;
-        elif [[ "$STATUS" == *"have you deployed yet?" ]];
-        then pipenv run zappa deploy staging;
-        else echo "$STATUS\nUnknown error!" && exit 1
-        fi
+      - run:
+          command: |
+            STATUS=$(pipenv run zappa status staging -j 2>&1)
+            if   [[ $(echo $STATUS | jq .);
+            then pipenv run zappa update staging;
+            elif [[ "$STATUS" == *"have you deployed yet?" ]];
+            then pipenv run zappa deploy staging;
+            else echo "$STATUS\nUnknown error!" && exit 1
+            fi
