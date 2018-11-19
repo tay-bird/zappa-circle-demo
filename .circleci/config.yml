@@ -9,8 +9,11 @@ jobs:
       - run: pipenv install
       - run:
           command: |
+            set +e
             STATUS=$(pipenv run zappa status staging -j 2>&1)
-            if   [[ $(echo $STATUS | jq .);
+            JQ_VALIDITY=$(echo $STATUS | jq .)
+            set -e
+            if   [[ JQ_VALIDITY ]];
             then pipenv run zappa update staging;
             elif [[ "$STATUS" == *"have you deployed yet?" ]];
             then pipenv run zappa deploy staging;
