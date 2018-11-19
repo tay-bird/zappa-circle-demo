@@ -1,13 +1,14 @@
 {
     "staging": {
         "app_function": "app.app",
+        "manage_roles": false,
         "project_name": "zappa-circle",
+        "role_arn": "arn:aws:iam::483285841698:role/zappa-execute-role",
         "runtime": "python2.7",
         "s3_bucket": "circle-zappa-viv818wqx"
     },
     "local": {
-        "extends": "staging",
-        "profile_name": "dev" 
+        "extends": "staging"
     },
     "live": {
         "extends": "staging"
