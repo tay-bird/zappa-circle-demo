@@ -11,9 +11,8 @@ jobs:
           command: |
             set +e
             STATUS=$(pipenv run zappa status staging -j 2>&1)
-            JQ_VALIDITY=$(echo $STATUS | jq .)
             set -e
-            if   [[ JQ_VALIDITY ]];
+            if $(echo $STATUS | jq . 2>/dev/null);
             then pipenv run zappa update staging;
             elif [[ "$STATUS" == *"have you deployed yet?" ]];
             then pipenv run zappa deploy staging;
