@@ -8,6 +8,7 @@ jobs:
       - checkout
       - run: pipenv install
       - run:
+          name: Deploying to Staging
           command: |
             set +e
             STATUS=$(pipenv run zappa status staging -j 2>&1)
