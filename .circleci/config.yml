@@ -1,21 +1,34 @@
 version: 2.1
 
+orbs:
+  zappa:
+    description: "An orb for Zappa, the Python serverless framework"
+    commands:
+      deploy:
+        parameters:
+          stage:
+            type: string
+            default: "dev"
+        steps:
+          - run:
+              name: Deploying to << parameters.stage >>
+              command: |
+                set +e
+                STATUS=$(pipenv run zappa status << parameters.stage >> -j 2>&1)
+                set -e
+                if [[ $(echo $STATUS | jq . 2>/dev/null) ]];
+                then pipenv run zappa update << parameters.stage >>;
+                elif [[ "$STATUS" == *"have you deployed yet?" ]];
+                then pipenv run zappa deploy << parameters.stage >>;
+                else echo "$STATUS\nUnknown error!" && exit 1
+                fi
+
 jobs:
-  build:
+  deploy:
     docker:
       - image: circleci/python:2.7.15
     steps:
       - checkout
       - run: pipenv install
-      - run:
-          name: Deploying to Staging
-          command: |
-            set +e
-            STATUS=$(pipenv run zappa status staging -j 2>&1)
-            set -e
-            if [[ $(echo $STATUS | jq . 2>/dev/null) ]];
-            then pipenv run zappa update staging;
-            elif [[ "$STATUS" == *"have you deployed yet?" ]];
-            then pipenv run zappa deploy staging;
-            else echo "$STATUS\nUnknown error!" && exit 1
-            fi
+      - zappa/deploy:
+          stage: staging
