@@ -5,7 +5,7 @@ A demo integration of Zappa and CircleCI for CD
 
 It's not a great idea to run with more permissions than needed. By default, Zappa provides write access to S3, EC2, and other important compute services. Use an **execution policy** to limit what it can do.
 
-You may also want to limit the permissions of the entity that deploys a Zappa project - for example, you may want to deploy your Zappa project via CI.
+It's also possible to limit the permissions of the entity that deploys a Zappa project - for example, you may want to deploy your Zappa project via CI. For this, use a **deploy policy**.
 
 ### Execution Policy
 
