@@ -44,3 +44,5 @@ workflows:
     jobs:
       - zappa/zappa-deploy:
           stage: staging
+          branches:
+            only: master
