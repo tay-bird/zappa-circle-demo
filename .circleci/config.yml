@@ -28,6 +28,7 @@ orbs:
                 fi
     jobs:
       zappa-deploy:
+        executor: default
         parameters:
           stage:
             type: string
