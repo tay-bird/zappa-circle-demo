@@ -42,4 +42,5 @@ orbs:
 workflows:
   deploy-demo:
     jobs:
-      - zappa/zappa-deploy
+      - zappa/zappa-deploy:
+          stage: staging
