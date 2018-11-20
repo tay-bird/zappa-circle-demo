@@ -5,8 +5,7 @@
         "project_name": "zappa-circle",
         "role_arn": "arn:aws:iam::483285841698:role/zappa-execute-role",
         "runtime": "python2.7",
-        "s3_bucket": "circle-zappa-viv818wqx",
-        "profile_name": "dev-zappa"
+        "s3_bucket": "circle-zappa-viv818wqx"
     },
     "local": {
         "extends": "staging",
