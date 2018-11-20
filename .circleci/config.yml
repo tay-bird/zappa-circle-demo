@@ -4,7 +4,7 @@ orbs:
   zappa:
     description: "An orb for Zappa, the Python serverless framework"
     commands:
-      deploy:
+      deploy-or-update:
         parameters:
           stage:
             type: string
@@ -22,13 +22,22 @@ orbs:
                 then pipenv run zappa deploy << parameters.stage >>;
                 else echo "$STATUS\nUnknown error!" && exit 1
                 fi
+    jobs:
+      deploy:
+        executors:
+          docker:
+            - image: circleci/python:2.7.15
+        parameters:
+          stage:
+            type: string
+            default: "dev"
+        steps:
+          - checkout
+          - run: pipenv install
+          - deploy-or-update:
+              stage: << parameters.stage >>
 
-jobs:
+workflows:
   deploy:
-    docker:
-      - image: circleci/python:2.7.15
-    steps:
-      - checkout
-      - run: pipenv install
-      - zappa/deploy:
-          stage: staging
+    jobs:
+      - zappa/deploy
