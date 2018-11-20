@@ -3,6 +3,10 @@ version: 2.1
 orbs:
   zappa:
     description: "An orb for Zappa, the Python serverless framework"
+    executors:
+      default:
+        docker:
+          - image: circleci/python:2.7.15
     commands:
       deploy-or-update:
         parameters:
@@ -24,9 +28,6 @@ orbs:
                 fi
     jobs:
       deploy:
-        executor:
-          docker:
-            - image: circleci/python:2.7.15
         parameters:
           stage:
             type: string
