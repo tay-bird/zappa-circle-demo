@@ -24,7 +24,7 @@ orbs:
                 fi
     jobs:
       deploy:
-        executors:
+        executor:
           docker:
             - image: circleci/python:2.7.15
         parameters:
