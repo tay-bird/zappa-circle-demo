@@ -27,7 +27,7 @@ orbs:
                 else echo "$STATUS\nUnknown error!" && exit 1
                 fi
     jobs:
-      deploy:
+      zappa-deploy:
         parameters:
           stage:
             type: string
@@ -39,6 +39,6 @@ orbs:
               stage: << parameters.stage >>
 
 workflows:
-  deploy:
+  deploy-demo:
     jobs:
-      - zappa/deploy
+      - zappa/zappa-deploy
