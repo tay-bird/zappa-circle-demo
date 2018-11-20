@@ -1,4 +1,0 @@
-usage: zappa [-h] [-v] [--color {auto,never,always}]
-             {certify,deploy,init,package,template,invoke,manage,rollback,schedule,status,tail,undeploy,unschedule,update,shell}
-             ...
-zappa: error: unrecognized arguments: zappa
