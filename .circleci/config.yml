@@ -1,7 +1,7 @@
 version: 2.1
 
 orbs:
-  zappa: borb/zappa@dev:first
+  zappa: borb/zappa@dev:fix-publish-format
 
 workflows:
   deploy-demo:
