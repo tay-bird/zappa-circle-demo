@@ -1,7 +1,7 @@
 version: 2.1
 
 orbs:
-  zappa: borb/zappa@dev:fix-publish-format
+  zappa: borb/zappa@dev:master
 
 workflows:
   deploy-demo:
@@ -11,9 +11,3 @@ workflows:
           filters:
             branches:
               only: master
-
-      - zappa/zappa-deploy:
-          stage: borb
-          filters:
-            branches:
-              only: borb-test
