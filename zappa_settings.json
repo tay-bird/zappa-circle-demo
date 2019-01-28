@@ -13,5 +13,8 @@
     },
     "live": {
         "extends": "staging"
+    },
+    "borb": {
+        "extends": "staging"
     }
 }
