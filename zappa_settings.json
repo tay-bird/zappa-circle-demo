@@ -14,7 +14,7 @@
     "live": {
         "extends": "staging"
     },
-    "borb": {
+    "borb-test": {
         "extends": "staging"
     }
 }
