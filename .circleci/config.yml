@@ -12,7 +12,7 @@ workflows:
             branches:
               only: master
       - zappa/zappa-deploy:
-          stage: borb-test
+          stage: borb
           filters:
             branches:
               only: borb-test
