@@ -1,7 +1,7 @@
 version: 2.1
 
 orbs:
-  zappa: borb/zappa@0.0.2
+  zappa: borb/zappa@dev:borb
 
 workflows:
   deploy-demo:
