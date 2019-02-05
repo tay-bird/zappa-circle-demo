@@ -13,6 +13,7 @@ workflows:
               only: master
       - zappa/zappa-deploy:
           stage: borb
+          python_version: "3.6.6"
           filters:
             branches:
               only: borb-test
