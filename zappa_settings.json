@@ -7,10 +7,10 @@
         "runtime": "python2.7",
         "s3_bucket": "circle-zappa-viv818wqx"
     },
-    "local": {
-        "extends": "staging",
-        "profile_name": "dev-zappa"
-    },
+#    "local": {
+#        "extends": "staging",
+#        "profile_name": "dev-zappa"
+#    },
     "live": {
         "extends": "staging"
     },

@@ -1,7 +1,7 @@
 version: 2.1
 
 orbs:
-  zappa: borb/zappa@dev:add-distinct-deploy-and-update-steps
+  zappa: borb/zappa@dev:add-support-for-all-flag
 
 workflows:
   deploy-demo:
@@ -12,7 +12,7 @@ workflows:
             branches:
               only: master
       - zappa/zappa-deploy:
-          stage: borb
+          all_stages: true
           python_version: "2.7"
           filters:
             branches:
