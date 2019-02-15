@@ -1,7 +1,7 @@
 version: 2.1
 
 orbs:
-  zappa: borb/zappa@dev:borb
+  zappa: borb/zappa@dev:add-distinct-deploy-and-update-steps
 
 workflows:
   deploy-demo:
