@@ -1,7 +1,7 @@
 version: 2.1
 
 orbs:
-  zappa: borb/zappa@dev:add-support-for-all-flag
+  zappa: borb/zappa@dev:master
 
 workflows:
   deploy-demo:
